@@ -1,4 +1,43 @@
 (() => {
+  const getExcerpt = (content, query) => {
+    const queryRegex = new RegExp(query, "i");
+    const searchIndex = content.search(queryRegex);
+    const queryLength = query.length;
+    const excerpt = content.slice(
+      getStartIndex(searchIndex, content),
+      getEndIndex(searchIndex, queryLength, content),
+    );
+
+    return excerpt.replace(
+      queryRegex,
+      "<strong class='search-results__matching-keyword'>$&</strong>"
+    );
+  };
+
+  const getStartIndex = (searchIndex, content) => {
+    let startIndex = searchIndex - 100;
+
+    if (startIndex < 0) { startIndex = 0; };
+
+    while (startIndex > 0 && content[startIndex] !== " ") {
+      startIndex = startIndex - 1;
+    };
+
+    if (content[startIndex] === " ") { startIndex++; };
+
+    return startIndex;
+  };
+
+  const getEndIndex = (searchIndex, queryLength, content) => {
+    let endIndex = searchIndex + queryLength + 100;
+
+    while (endIndex !== content.length && content[endIndex] !== " ") {
+      endIndex++;
+    };
+
+    return endIndex;
+  };
+
   const displaySearchResults = (results, store, searchTerm) => {
     const searchResultsElement = document.getElementById("search-results");
 
@@ -8,8 +47,9 @@
       results.forEach((result) => {
         const item = store[result.ref];
         appendString +=
-          '<li><a href="' + item.url + '"><h3>' + item.title + "</h3></a>";
-        appendString += "<p>" + item.content.substring(0, 150) + "...</p></li>";
+          '<li class="search-results__result"><a href="' + item.url + '"><h3>' + item.title + "</h3></a>";
+        appendString +=
+          "<p>..." + getExcerpt(item.content, searchTerm) + "...</p></li>";
       });
 
       searchResultsElement.innerHTML = appendString;
@@ -43,7 +83,7 @@
       });
 
       const results = index.search(searchTerm);
-      displaySearchResults(results, window.store);
+      displaySearchResults(results, window.store, searchTerm);
     }
   }
 })();
