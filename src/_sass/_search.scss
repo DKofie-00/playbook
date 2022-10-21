@@ -1,9 +1,26 @@
 @use "./colours";
 
-.search-results__result {
-  list-style-type: none;
+.search-form {
+  .navbar__search--block & {
+    text-align: center;
+  }
+
+  &__input {
+    background-color: colours.$ivory;
+    border: 0.063rem solid colours.$navy;
+    color: colours.$navy;
+    line-height: 1.35;
+    padding: 0.5rem 0.938rem;
+    width: 100%;
+  }
 }
 
-.search-results__matching-keyword {
-  color: colours.$blue-mid;
+.search-results {
+  &__result {
+    list-style-type: none;
+  }
+
+  &__matching-keyword {
+    color: colours.$blue-mid;
+  }
 }
