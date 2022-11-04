@@ -6,12 +6,12 @@
             <img src="/assets/dxw-logo.png" alt="" />
         </a>
       </li>
-      <li>
-        {% include search_form.html %}
+      <li class="navbar__search--inline">
+        {% include search_form.html display="inline" %}
       </li>
     </ul>
     <div class="navbar__search--block">
-      {% include search_form.html %}
+      {% include search_form.html display="block" %}
     </div>  
   </nav>
 </header>
