@@ -127,9 +127,7 @@
   }
 
   const getStartIndex = (searchIndex, content) => {
-    let startIndex = searchIndex - 100
-
-    if (startIndex < 0) { startIndex = 0 }
+    let startIndex = Math.max(searchIndex - 100, 0)
 
     while (startIndex > 0 && content[startIndex] !== ' ') {
       startIndex = startIndex - 1
@@ -141,7 +139,7 @@
   }
 
   const getEndIndex = (searchIndex, queryLength, content) => {
-    let endIndex = searchIndex + queryLength + 100
+    let endIndex = Math.min(searchIndex + queryLength + 100, content.length)
 
     while (endIndex !== content.length && content[endIndex] !== ' ') {
       endIndex++
