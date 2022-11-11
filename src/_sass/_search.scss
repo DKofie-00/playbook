@@ -35,6 +35,10 @@
 .search-results {
   padding: 0;
 
+  &__no-results-message {
+    list-style-type: none;
+  }
+
   &__result {
     list-style-type: none;
     margin-bottom: 2rem;

@@ -67,7 +67,7 @@
     const searchResultsElement = document.getElementById('search-results')
 
     if (!results.length) {
-      searchResultsElement.innerHTML = '<li>No results found</li>'
+      searchResultsElement.innerHTML = '<li class="search-results__no-results-message">No results found</li>'
       return
     }
 
