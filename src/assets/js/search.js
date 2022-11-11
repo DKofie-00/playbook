@@ -85,22 +85,25 @@
 
       breadcrumbs.pop()
 
+      const breadcrumbsString = breadcrumbs.join(' > ')
+
       const matchesRegex = new RegExp(searchTerm, 'gi')
       const matchCount = item.content.match(matchesRegex)?.length || 0
+      const matchCountLabel = matchCount === 1 ? 'match' : 'matches'
+
+      const excerpt = getExcerpt(item.content, searchTerm)
 
       innerHtml +=
-        '<li class="search-results__result"><a href="' +
-        item.url +
-        '"><h3 class="search-results__result-title">' +
-        item.title +
-        '</h3></a><div class="search-results__result-meta"><span>' +
-        breadcrumbs.join(' > ') +
-        '</span><span>' +
-        matchCount +
-        (matchCount === 1 ? ' match</span></div>' : ' matches</span></div>') +
-        '<p class="search-results__result-excerpt">...' +
-        getExcerpt(item.content, searchTerm) +
-        '...</p></li>'
+        '<li class="search-results__result">' +
+          `<a href="${item.url}">` +
+            `<h3 class="search-results__result-title">${item.title}</h3>` +
+          '</a>' +
+          '<div class="search-results__result-meta">' +
+            `<span>${breadcrumbsString}</span>` +
+            `<span>${matchCount} ${matchCountLabel}</span>` +
+          '</div>' +
+          `<p class="search-results__result-excerpt">...${excerpt}...</p>` +
+        '</li>'
     })
 
     searchResultsElement.innerHTML = innerHtml
