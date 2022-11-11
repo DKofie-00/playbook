@@ -104,7 +104,7 @@
             `<span>${breadcrumbsString}</span>` +
             `<span>${matchCount} ${matchCountLabel}</span>` +
           '</div>' +
-          `<p class="search-results__result-excerpt">...${excerpt}...</p>` +
+          `<p class="search-results__result-excerpt">${excerpt}</p>` +
         '</li>'
     })
 
@@ -115,10 +115,13 @@
     const queryRegex = new RegExp(query, 'i')
     const searchIndex = content.search(queryRegex)
     const queryLength = query.length
-    const excerpt = content.slice(
-      getStartIndex(searchIndex, content),
-      getEndIndex(searchIndex, queryLength, content)
-    )
+
+    const excerptStartIndex = getStartIndex(searchIndex, content)
+    const excerptEndIndex = getEndIndex(searchIndex, queryLength, content)
+    let excerpt = content.slice(excerptStartIndex, excerptEndIndex)
+
+    if (excerptStartIndex > 0) { excerpt = '...' + excerpt }
+    if (excerptEndIndex < content.length) { excerpt += '...' }
 
     return excerpt.replace(
       queryRegex,
