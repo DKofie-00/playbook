@@ -93,14 +93,9 @@
         item.url +
         '"><h3 class="search-results__result-title">' +
         item.title +
-        '</h3></a><div class="search-results__result-meta">'
-
-      if (breadcrumbs.length) {
-        innerHtml += '<span>' + breadcrumbs.join(' > ') + '</span>'
-      }
-
-      innerHtml +=
-        '<span>' +
+        '</h3></a><div class="search-results__result-meta"><span>' +
+        breadcrumbs.join(' > ') +
+        '</span><span>' +
         matchCount +
         (matchCount === 1 ? ' match</span></div>' : ' matches</span></div>') +
         '<p class="search-results__result-excerpt">...' +
