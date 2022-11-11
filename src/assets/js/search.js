@@ -2,15 +2,12 @@
   const call = () => {
     const searchTerm = getQueryVariable('query')
 
-    if (!searchTerm) { return }
+    if (searchTerm) { populateSearchInputs(searchTerm) }
 
-    populateSearchInputs(searchTerm)
-
-    const index = generateIndex()
-    const results = index.search(searchTerm)
+    const results = searchTerm ? generateIndex().search(searchTerm) : undefined
 
     displaySearchResults(results, searchTerm)
-    setHeading(results.length, searchTerm)
+    setHeading(results?.length, searchTerm)
   }
 
   const getQueryVariable = (variable) => {
@@ -65,6 +62,11 @@
 
   const displaySearchResults = (results, searchTerm) => {
     const searchResultsElement = document.getElementById('search-results')
+
+    if (!searchTerm) {
+      searchResultsElement.innerHTML = '<li class="search-results__no-results-message">Enter a search term in the box above</li>'
+      return
+    }
 
     if (!results.length) {
       searchResultsElement.innerHTML = '<li class="search-results__no-results-message">No results found</li>'
@@ -148,6 +150,11 @@
 
   const setHeading = (resultsCount, searchTerm) => {
     const searchHeading = document.getElementById('search-heading')
+
+    if (!searchTerm) {
+      searchHeading.innerText = 'Enter a search term'
+      return
+    }
 
     const resultsLabel = resultsCount === 1 ? 'result' : 'results'
 
