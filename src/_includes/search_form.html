@@ -1,4 +1,7 @@
 <form action="/search" method="get" class="search-form">
   <label for="search-box--{{ include.display }}" class="visually-hidden">Search</label>
   <input type="text" id="search-box--{{ include.display }}" class="search-form__input" name="query" placeholder="Search Playbook">
+  <button type="submit" class="search-form__submit" aria-label="Search">
+    <img alt="Magnifying glass icon" class="search-form__submit-icon" src="{{ site.baseurl }}/assets/magnifying-glass-solid.svg">
+  </button>
 </form>
