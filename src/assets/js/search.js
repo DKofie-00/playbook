@@ -98,7 +98,7 @@
       innerHtml +=
         '<li class="search-results__result">' +
           `<a href="${item.url}">` +
-            `<h3 class="search-results__result-title">${item.title}</h3>` +
+            `<h2 class="search-results__result-title">${item.title}</h2>` +
           '</a>' +
           '<div class="search-results__result-meta">' +
             `<span>${breadcrumbsString}</span>` +
