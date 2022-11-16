@@ -2,7 +2,6 @@
 title: What to expect when joining dxw as an employee
 permalink: /:path/:basename/
 ---
-
 ## Onboarding
 
 After you’ve accepted a role at dxw a member of our HR team will be in touch
@@ -17,17 +16,17 @@ Below is a rough outline of what to expect from your first two days at dxw.
 
 ### Day 1
 
-- Laptop & password set up (led by a tech team member)
-- Security chat, password chat & sign documents
-- Lunch / Zoom welcome
-- HR welcome chat with Passport & P45 check
-- Meet your manager
+* Laptop & password set up (led by a tech team member)
+* Security chat, password chat & sign documents
+* Lunch / Zoom welcome
+* HR welcome chat with Passport & P45 check
+* Meet your manager
 
 ### Day 2
 
-- Helper welcome chat
-- Half-day of self-led training (including any help with software)
-- Employee led tasks from your Trello
+* Helper welcome chat
+* Half-day of self-led training (including any help with software)
+* Employee led tasks from your Trello
 
 ## Probation
 
@@ -75,7 +74,6 @@ recruitment process and through your regular check ins.
 ## Internal facing roles
 
 We’re also offering internal facing roles, for example, in our busy commercial
-and marketing teams who also support our sister company, Tradecraft. These roles
-are not billed back to our clients.
+and marketing teams. These roles are not billed back to our clients.
 
 If you think this might be for you, please apply through our jobs page.
