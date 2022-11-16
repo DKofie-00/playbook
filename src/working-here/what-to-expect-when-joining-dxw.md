@@ -65,7 +65,7 @@ If you join us, you’ll be continuously supported by our people team, a line
 manager and a mentor within the same field. You‘ll have regular check ins with
 the team where you can speak openly about anything that’s on your mind.
 
-## Client facing role
+## Client facing roles
 
 For client-facing roles we’ll start billing your time back to the client when we
 feel the time is right. This will be something we discuss openly during the
